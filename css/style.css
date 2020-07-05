@@ -72,12 +72,19 @@ h2 {
   font-family: "Source Sans Pro", sans-serif;
 }
 .movies,
-.upcoming {
+.upcoming,
+.top-rated {
   display: flex;
   overflow-x: auto;
   gap: 20px;
 }
 .movies::-webkit-scrollbar {
+  display: none;
+}
+.upcoming::-webkit-scrollbar {
+  display: none;
+}
+.top-rated::-webkit-scrollbar {
   display: none;
 }
 .movie-card {

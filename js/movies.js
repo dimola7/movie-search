@@ -21,3 +21,14 @@ const getUpcoming = async () => {
 
   return data;
 };
+
+//get top-rated movies
+const getTopRated = async () => {
+  const base = "https://api.themoviedb.org/3/movie/top_rated";
+  const query = `?api_key=${key}`;
+
+  const response = await fetch(base + query);
+  const data = await response.json();
+
+  return data;
+};

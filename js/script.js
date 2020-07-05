@@ -3,6 +3,7 @@ const showMovies = document.querySelector(".movies");
 const loader = document.querySelector(".loader");
 const title = document.querySelector(".movie-title");
 const upcoming = document.querySelector(".upcoming");
+const topRated = document.querySelector(".top-rated");
 //api doc instructs to add this url before every image url
 const IMG_URL = "https://image.tmdb.org/t/p/w500";
 
@@ -31,7 +32,6 @@ const updateUI = (data) => {
 //display upcoming movies
 const upcomingMovies = (data) => {
   const movies = data.upcoming.results;
-  console.log(movies);
   movies.forEach((movie) => {
     const html = `
         <div class="movie-card">
@@ -47,6 +47,25 @@ const upcomingMovies = (data) => {
     upcoming.innerHTML += html;
   });
 };
+//display topRated movies
+const topRatedMovies = (data) => {
+  const movies = data.topRated.results;
+  console.log(movies);
+  movies.forEach((movie) => {
+    const html = `
+        <div class="movie-card">
+          <img
+            class="movie-card-img"
+            src="${IMG_URL}${movie.poster_path}"
+            alt="image"
+            data-movie-id=${movie.id}
+          />
+        <p class="movie-name">${movie.title}</p>
+      </div>
+    `;
+    topRated.innerHTML += html;
+  });
+};
 const viewMovies = async (movie) => {
   const movies = await getMovies(movie);
 
@@ -57,7 +76,11 @@ const viewUpcoming = async () => {
 
   return { upcoming };
 };
+const viewTopRated = async () => {
+  const topRated = await getTopRated();
 
+  return { topRated };
+};
 search.addEventListener("submit", (e) => {
   e.preventDefault();
 
@@ -82,6 +105,10 @@ search.addEventListener("submit", (e) => {
 addEventListener("DOMContentLoaded", (e) => {
   viewUpcoming()
     .then((data) => upcomingMovies(data))
+    .catch((err) => console.log(err));
+
+  viewTopRated()
+    .then((data) => topRatedMovies(data))
     .catch((err) => console.log(err));
 });
 
