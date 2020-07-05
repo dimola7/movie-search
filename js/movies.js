@@ -10,3 +10,14 @@ const getMovies = async (movie) => {
 
   return data;
 };
+
+//get upcoming movies
+const getUpcoming = async () => {
+  const base = "https://api.themoviedb.org/3/movie/upcoming";
+  const query = `?api_key=${key}`;
+
+  const response = await fetch(base + query);
+  const data = await response.json();
+
+  return data;
+};
