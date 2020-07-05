@@ -10,6 +10,7 @@ const IMG_URL = "https://image.tmdb.org/t/p/w500";
 //display searched movie results
 const updateUI = (data) => {
   const movies = data.movies.results;
+  console.log(data);
   title.innerHTML = `<h1>search title goes here</h1>`;
   movies.forEach((movie) => {
     if (movie.poster_path) {
@@ -28,7 +29,24 @@ const updateUI = (data) => {
     }
   });
 };
-
+//display topRated movies
+const topRatedMovies = (data) => {
+  const movies = data.topRated.results.reverse();
+  movies.forEach((movie) => {
+    const html = `
+        <div class="movie-card">
+          <img
+            class="movie-card-img"
+            src="${IMG_URL}${movie.poster_path}"
+            alt="image"
+            data-movie-id=${movie.id}
+          />
+        <p class="movie-name">${movie.title}</p>
+      </div>
+    `;
+    topRated.innerHTML += html;
+  });
+};
 //display upcoming movies
 const upcomingMovies = (data) => {
   const movies = data.upcoming.results;
@@ -47,25 +65,7 @@ const upcomingMovies = (data) => {
     upcoming.innerHTML += html;
   });
 };
-//display topRated movies
-const topRatedMovies = (data) => {
-  const movies = data.topRated.results;
-  console.log(movies);
-  movies.forEach((movie) => {
-    const html = `
-        <div class="movie-card">
-          <img
-            class="movie-card-img"
-            src="${IMG_URL}${movie.poster_path}"
-            alt="image"
-            data-movie-id=${movie.id}
-          />
-        <p class="movie-name">${movie.title}</p>
-      </div>
-    `;
-    topRated.innerHTML += html;
-  });
-};
+
 const viewMovies = async (movie) => {
   const movies = await getMovies(movie);
 
