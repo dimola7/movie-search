@@ -32,3 +32,26 @@ const getTopRated = async () => {
 
   return data;
 };
+
+//get popular tv shows
+const getTvShows = async () => {
+  const base = "https://api.themoviedb.org/3/tv/popular";
+  const query = `?api_key=${key}`;
+
+  const response = await fetch(base + query);
+  const data = await response.json();
+
+  // const { tvShows } = data;
+  // return tvShows;
+  return data;
+};
+//display actors
+// const getActors = async () => {
+//   const base = "https://api.themoviedb.org/3/person/popular";
+//   const query = `?api_key=${key}`;
+
+//   const response = await fetch(base + query);
+//   const data = await response.json();
+
+//   return data;
+// };

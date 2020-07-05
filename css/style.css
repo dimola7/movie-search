@@ -45,7 +45,7 @@ body {
 .loader {
   position: absolute;
   left: 53%;
-  top: 90%;
+  top: 40%;
   z-index: 1;
   margin: -120px 0 0 -75px;
   border: 3px solid #f3f3f3;
@@ -57,6 +57,24 @@ body {
 }
 .hide {
   display: none;
+}
+
+@-webkit-keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 h1 {
   color: #ffa502;
@@ -73,7 +91,8 @@ h2 {
 }
 .movies,
 .upcoming,
-.top-rated {
+.top-rated,
+.shows {
   display: flex;
   overflow-x: auto;
   gap: 20px;
@@ -85,6 +104,9 @@ h2 {
   display: none;
 }
 .top-rated::-webkit-scrollbar {
+  display: none;
+}
+.shows::-webkit-scrollbar {
   display: none;
 }
 .movie-card {
@@ -106,7 +128,7 @@ h2 {
   font-size: 17px;
   text-align: left;
   padding: 20px 0;
-  margin-left: 15px;
+  margin-right: 5px;
 }
 
 @media screen and (max-width: 800px) {
