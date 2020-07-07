@@ -14,10 +14,13 @@ const IMG_URL = "https://image.tmdb.org/t/p/w500";
 const updateUI = (data) => {
   const movies = data.movies.results;
   console.log(movies);
-  title.innerHTML = `<h1>${movies[0]}</h1>`;
+  title.innerHTML = `<h1>Results</h1>`;
   movies.forEach((movie) => {
+    const type = movie.media_type;
+    const id = movie.id;
     if (movie.poster_path) {
       const html = `
+      <a href="movieDetails.html?type=${type}&id=${id}">
      <div class="movie-card">
           <img
             class="movie-card-img"
@@ -27,6 +30,7 @@ const updateUI = (data) => {
           />
         <p class="movie-name">${movie.title || movie.name}</p>
       </div>
+      </a>
         `;
       showMovies.innerHTML += html;
     }
@@ -35,8 +39,12 @@ const updateUI = (data) => {
 //display topRated movies
 const topRatedMovies = (data) => {
   const movies = data.topRated.results.reverse();
+  console.log(movies);
   movies.forEach((movie) => {
+    const type = movie.media_type;
+    const id = movie.id;
     const html = `
+    <a href="movieDetails.html?type=movie&id=${id}">
         <div class="movie-card">
           <img
             class="movie-card-img"
@@ -46,6 +54,7 @@ const topRatedMovies = (data) => {
           />
         <p class="movie-name">${movie.title}</p>
       </div>
+      </a>
     `;
     topRated.innerHTML += html;
   });
@@ -54,7 +63,10 @@ const topRatedMovies = (data) => {
 const upcomingMovies = (data) => {
   const movies = data.upcoming.results;
   movies.forEach((movie) => {
+    const type = movie.media_type;
+    const id = movie.id;
     const html = `
+    <a href="movieDetails.html?type=movie&id=${id}">
         <div class="movie-card">
           <img
             class="movie-card-img"
@@ -64,6 +76,7 @@ const upcomingMovies = (data) => {
           />
         <p class="movie-name">${movie.title}</p>
       </div>
+      </a>
     `;
     upcoming.innerHTML += html;
   });
@@ -72,9 +85,12 @@ const upcomingMovies = (data) => {
 //display tv shows
 const displayTvShows = (data) => {
   const tvShows = data.tvShows.results;
-  tvShows.innerHTML = `<h1>search title goes here</h1>`;
+  console.log(tvShows);
   tvShows.forEach((tvShow) => {
+    const type = tvShow.media_type;
+    const id = tvShow.id;
     const html = `
+    <a href="movieDetails.html?type=tv&id=${id}">
         <div class="movie-card">
           <img
             class="movie-card-img"
@@ -84,6 +100,7 @@ const displayTvShows = (data) => {
           />
         <p class="movie-name">${tvShow.name}</p>
       </div>
+      </a>
     `;
     shows.innerHTML += html;
   });
@@ -154,6 +171,7 @@ search.addEventListener("submit", (e) => {
 
   // set localStorage
   localStorage.setItem("movies", movieSearch);
+  return movieSearch;
 });
 
 addEventListener("DOMContentLoaded", (e) => {

@@ -21,14 +21,6 @@ body {
   background-color: #181818;
   overflow: hidden;
 }
-.nav .search {
-  display: inline-block;
-  padding: 7px 20px;
-  box-sizing: border-box;
-  border: 1px solid #555;
-  outline: none;
-  width: 30%;
-}
 .logo {
   float: left;
   padding-left: 10%;
@@ -41,10 +33,7 @@ body {
   text-decoration: none;
   color: #ffa502;
 }
-a {
-  text-decoration: none;
-  color: #fff;
-}
+
 .loader {
   position: absolute;
   left: 53%;
@@ -78,6 +67,10 @@ a {
   100% {
     transform: rotate(360deg);
   }
+}
+.grid{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
 }
 h1 {
   color: #ffa502;
@@ -134,8 +127,9 @@ h2 {
   margin-right: 5px;
 }
 
+
 @media screen and (max-width: 800px) {
-  .nav .search {
-    width: 50%;
-  }
+    .horizontal {
+  width: 100%;
+}
 }

@@ -41,8 +41,26 @@ const getTvShows = async () => {
   const response = await fetch(base + query);
   const data = await response.json();
 
-  // const { tvShows } = data;
-  // return tvShows;
+  return data;
+};
+//get movie details
+const getMovieDets = async (movie_id) => {
+  const base = `https://api.themoviedb.org/3/movie/${movie_id}`;
+  const query = `?api_key=${key}`;
+
+  const response = await fetch(base + query);
+  const data = await response.json();
+
+  return data;
+};
+//get show details
+const getTvDets = async (tv_id) => {
+  const base = `https://api.themoviedb.org/3/tv/${tv_id}`;
+  const query = `?api_key=${key}`;
+
+  const response = await fetch(base + query);
+  const data = await response.json();
+
   return data;
 };
 //display actors
@@ -55,3 +73,10 @@ const getTvShows = async () => {
 
 //   return data;
 // };
+
+//   const mediaType = details.querySelector(".media-name");
+  //   if (movie.media_type === movie) {
+  //     mediaType.innerHTML = movie.title;
+  //   } else {
+  //     mediaType.innerHTML = movie.name;
+  //   }
