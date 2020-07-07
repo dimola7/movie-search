@@ -131,7 +131,6 @@ h2 {
   width: 390px;
   margin-right: 20px;
   border-radius: 40px;
-  /* background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)); */
 }
 .trending-name {
   font-family: sans-serif;
@@ -160,8 +159,7 @@ h2 {
   .nav .search {
     width: 50%;
   }
-}
-
-#slider {
-  overflow: hidden;
+  .trending-img {
+    width: 300px;
+  }
 }
