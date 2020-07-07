@@ -6,13 +6,13 @@ const IMG_URL = "https://image.tmdb.org/t/p/w500";
 const renderDetails = (data) => {
   const movie = data;
   console.log(movie);
-    details.innerHTML = `
+  details.innerHTML = `
     <div class="grid">
         <div class="image">
           <h2><span>|</span>${movie.title || movie.name}</h2>
          <img
             class="movie horizontal"
-            src="${IMG_URL}${movie.backdrop_path}"
+            src="${IMG_URL}${movie.backdrop_path || movie.poster_path}"
             alt="image"
             data-movie-id=${movie.id}
           />
@@ -53,8 +53,7 @@ addEventListener("DOMContentLoaded", (e) => {
     getTvDets(id)
       .then((data) => renderDetails(data))
       .catch((err) => console.log(err));
-    }
-  else {
+  } else {
     getMovieDets(id)
       .then((data) => renderDetails(data))
       .catch((err) => console.log(err));
