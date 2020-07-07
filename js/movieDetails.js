@@ -41,6 +41,14 @@ addEventListener("DOMContentLoaded", (e) => {
   console.log(type);
   console.log(id);
 
+  if (id) {
+    getMovieReviews(id)
+      .then((data) => console.log(data))
+      .catch((err) => console.log(err));
+    getTvReviews(id)
+      .then((data) => console.log(data))
+      .catch((err) => console.log(err));
+  }
   //   if ((id, type === "movie")) {
   //     getMovieDets(id)
   //       .then((data) => renderDetails(data))

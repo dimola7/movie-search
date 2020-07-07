@@ -10,6 +10,16 @@ const getMovies = async (movie) => {
 
   return data;
 };
+//trending
+const getTrending = async () => {
+  const base = "https://api.themoviedb.org/3/trending/all/day";
+  const query = `?api_key=${key}`;
+
+  const response = await fetch(base + query);
+  const data = await response.json();
+
+  return data;
+};
 
 //get upcoming movies
 const getUpcoming = async () => {
@@ -63,6 +73,27 @@ const getTvDets = async (tv_id) => {
 
   return data;
 };
+//get movie reviews
+const getMovieReviews = async (movie_id) => {
+  const base = `https://api.themoviedb.org/3/movie/${movie_id}/reviews`;
+  const query = `?api_key=${key}`;
+
+  const response = await fetch(base + query);
+  const data = await response.json();
+
+  return data;
+};
+
+//get tv reviews
+const getTvReviews = async (tv_id) => {
+  const base = `https://api.themoviedb.org/3/movie/${tv_id}/reviews`;
+  const query = `?api_key=${key}`;
+
+  const response = await fetch(base + query);
+  const data = await response.json();
+
+  return data;
+};
 //display actors
 // const getActors = async () => {
 //   const base = "https://api.themoviedb.org/3/person/popular";
@@ -75,8 +106,8 @@ const getTvDets = async (tv_id) => {
 // };
 
 //   const mediaType = details.querySelector(".media-name");
-  //   if (movie.media_type === movie) {
-  //     mediaType.innerHTML = movie.title;
-  //   } else {
-  //     mediaType.innerHTML = movie.name;
-  //   }
+//   if (movie.media_type === movie) {
+//     mediaType.innerHTML = movie.title;
+//   } else {
+//     mediaType.innerHTML = movie.name;
+//   }

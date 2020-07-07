@@ -1,5 +1,6 @@
 const search = document.querySelector("form");
 const showMovies = document.querySelector(".movies");
+const trend = document.querySelector(".trending");
 const loader = document.querySelector(".loader");
 const title = document.querySelector(".movie-title");
 const upcoming = document.querySelector(".upcoming");
@@ -33,6 +34,29 @@ const updateUI = (data) => {
         `;
       showMovies.innerHTML += html;
     }
+  });
+};
+//display trending
+const showTrending = (data) => {
+  const trending = data.trending.results;
+  console.log(trending);
+  trending.forEach((trending) => {
+    const type = trending.media_type;
+    const id = trending.id;
+    const html = `
+    <a href="movieDetails.html?type=${type}&id=${id}">
+        <div class="trending-card">
+          <img
+            class="trending-img"
+            src="${IMG_URL}${trending.backdrop_path}"
+            alt="image"
+            data-movie-id=${trending.id}
+          />
+        <p class="trending-name">${trending.title || trending.name}</p>
+      </div>
+      </a>
+    `;
+    trend.innerHTML += html;
   });
 };
 //display topRated movies
@@ -122,6 +146,11 @@ const viewTvShows = async () => {
 
   return { tvShows };
 };
+const viewTrending = async () => {
+  const trending = await getTrending();
+
+  return { trending };
+};
 
 search.addEventListener("submit", (e) => {
   e.preventDefault();
@@ -142,14 +171,18 @@ search.addEventListener("submit", (e) => {
     })
     .catch((err) => console.log(err));
 
-      title.innerHTML = `<h1>${movieSearch}</h1>`;
-  
+  title.innerHTML = `<h1>${movieSearch}</h1>`;
+
   // set localStorage
   localStorage.setItem("movies", movieSearch);
   return movieSearch;
 });
 
 addEventListener("DOMContentLoaded", (e) => {
+  viewTrending()
+    .then((data) => showTrending(data))
+    .catch((err) => console.log(err));
+
   viewUpcoming()
     .then((data) => upcomingMovies(data))
     .catch((err) => console.log(err));

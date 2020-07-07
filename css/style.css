@@ -8,7 +8,7 @@ body {
   box-sizing: border-box;
 }
 .container {
-  padding-top: 40px;
+  padding-top: 20px;
   padding-bottom: 40px;
   width: 95%;
   margin: auto;
@@ -18,7 +18,7 @@ body {
   text-align: right;
   padding-right: 10%;
   top: 0;
-  background-color: #181818;
+  /* background-color: #181818; */
   overflow: hidden;
 }
 .nav .search {
@@ -95,7 +95,8 @@ h2 {
 .movies,
 .upcoming,
 .top-rated,
-.shows {
+.shows,
+.trending {
   display: flex;
   overflow-x: auto;
   gap: 20px;
@@ -112,6 +113,9 @@ h2 {
 .shows::-webkit-scrollbar {
   display: none;
 }
+.trending::-webkit-scrollbar {
+  display: none;
+}
 .movie-card {
   width: 100%;
 }
@@ -119,6 +123,24 @@ h2 {
 .movie-card-img {
   width: 200px;
   margin-right: 20px;
+}
+.trending-card {
+  width: 100%;
+}
+.trending-img {
+  width: 390px;
+  margin-right: 20px;
+  border-radius: 40px;
+  /* background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)); */
+}
+.trending-name {
+  font-family: sans-serif;
+  font-size: 17px;
+  padding: 20px 0;
+  margin-right: 5px;
+  /* position: relative; */
+  top: 50%;
+  left: 50%;
 }
 .movie-card:hover {
   margin-left: 0 40px;
@@ -133,30 +155,13 @@ h2 {
   padding: 20px 0;
   margin-right: 5px;
 }
-#i1,
-#i2,
-#i3 {
-  display: none;
-}
-.pre,
-.next {
-  width: 12%;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  background: rgba(88, 88, 88, 0.4);
-  z-index: 99;
-  cursor: pointer;
-}
-.pre {
-  left: 0;
-}
-.next {
-  right: 0;
-}
 
 @media screen and (max-width: 800px) {
   .nav .search {
     width: 50%;
   }
+}
+
+#slider {
+  overflow: hidden;
 }
