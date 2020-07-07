@@ -68,9 +68,10 @@ body {
     transform: rotate(360deg);
   }
 }
-.grid{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 10px;
 }
 h1 {
   color: #ffa502;
@@ -84,6 +85,19 @@ span {
 h2 {
   padding-bottom: 10px;
   font-family: "Source Sans Pro", sans-serif;
+}
+p {
+  font-family: "Source Sans Pro", sans-serif;
+  text-align: justify;
+}
+.year {
+  margin-top: 40px;
+  font-size: 20px;
+  color: #808080;
+}
+.overview {
+  font-size: 18px;
+  color: #808080;
 }
 .movies,
 .upcoming,
@@ -127,9 +141,11 @@ h2 {
   margin-right: 5px;
 }
 
-
 @media screen and (max-width: 800px) {
-    .horizontal {
-  width: 100%;
-}
+  .horizontal {
+    width: 100%;
+  }
+  .grid {
+    grid-template-columns: 1fr;
+  }
 }

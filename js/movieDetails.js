@@ -5,6 +5,8 @@ const IMG_URL = "https://image.tmdb.org/t/p/w500";
 
 const renderDetails = (data) => {
   const movie = data;
+  const year = movie.release_date;
+  const tvYear = movie.first_air_date;
   console.log(movie);
   details.innerHTML = `
     <div class="grid">
@@ -18,17 +20,13 @@ const renderDetails = (data) => {
           />
         </div>
         <div class="dets">
-          two
+          <h1>Overview</h1>
+          <p class="overview">${movie.overview}</p>
+          <p class="year">Released: ${year || tvYear}</p>
         </div>
       </div>
         
     `;
-  //   const mediaType = details.querySelector(".media-name");
-  //   if (movie.media_type === movie) {
-  //     mediaType.innerHTML = movie.title;
-  //   } else {
-  //     mediaType.innerHTML = movie.name;
-  //   }
 };
 
 addEventListener("DOMContentLoaded", (e) => {

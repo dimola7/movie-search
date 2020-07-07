@@ -133,6 +133,27 @@ h2 {
   padding: 20px 0;
   margin-right: 5px;
 }
+#i1,
+#i2,
+#i3 {
+  display: none;
+}
+.pre,
+.next {
+  width: 12%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  background: rgba(88, 88, 88, 0.4);
+  z-index: 99;
+  cursor: pointer;
+}
+.pre {
+  left: 0;
+}
+.next {
+  right: 0;
+}
 
 @media screen and (max-width: 800px) {
   .nav .search {

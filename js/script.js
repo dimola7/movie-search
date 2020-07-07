@@ -5,7 +5,6 @@ const title = document.querySelector(".movie-title");
 const upcoming = document.querySelector(".upcoming");
 const shows = document.querySelector(".shows");
 const topRated = document.querySelector(".top-rated");
-// const actors = document.querySelector(".actors");
 
 //api doc instructs to add this url before every image url
 const IMG_URL = "https://image.tmdb.org/t/p/w500";
@@ -41,7 +40,6 @@ const topRatedMovies = (data) => {
   const movies = data.topRated.results.reverse();
   console.log(movies);
   movies.forEach((movie) => {
-    const type = movie.media_type;
     const id = movie.id;
     const html = `
     <a href="movieDetails.html?type=movie&id=${id}">
@@ -63,7 +61,6 @@ const topRatedMovies = (data) => {
 const upcomingMovies = (data) => {
   const movies = data.upcoming.results;
   movies.forEach((movie) => {
-    const type = movie.media_type;
     const id = movie.id;
     const html = `
     <a href="movieDetails.html?type=movie&id=${id}">
@@ -87,7 +84,6 @@ const displayTvShows = (data) => {
   const tvShows = data.tvShows.results;
   console.log(tvShows);
   tvShows.forEach((tvShow) => {
-    const type = tvShow.media_type;
     const id = tvShow.id;
     const html = `
     <a href="movieDetails.html?type=tv&id=${id}">
@@ -105,25 +101,6 @@ const displayTvShows = (data) => {
     shows.innerHTML += html;
   });
 };
-
-//display actors
-// const showActors = (data) => {
-//   const actors = data.results;
-//   actors.forEach((actor) => {
-//     const html = `
-//         <div class="movie-card">
-//           <img
-//             class="movie-card-img"
-//             src="${IMG_URL}${actor.profile_path}"
-//             alt="image"
-//             data-movie-id=${actor.id}
-//           />
-//         <p class="movie-name">${actor.name}</p>
-//       </div>
-//     `;
-//     actors.innerHTML += html;
-//   });
-// };
 
 const viewMovies = async (movie) => {
   const movies = await getMovies(movie);
@@ -145,11 +122,6 @@ const viewTvShows = async () => {
 
   return { tvShows };
 };
-// const viewActors = async () => {
-//   const actors = await getActors();
-
-//   return { actors };
-// };
 
 search.addEventListener("submit", (e) => {
   e.preventDefault();
@@ -158,6 +130,7 @@ search.addEventListener("submit", (e) => {
   search.reset();
 
   console.log(movieSearch);
+
   loader.classList.remove("hide");
 
   showMovies.innerHTML = "";
@@ -169,6 +142,8 @@ search.addEventListener("submit", (e) => {
     })
     .catch((err) => console.log(err));
 
+      title.innerHTML = `<h1>${movieSearch}</h1>`;
+  
   // set localStorage
   localStorage.setItem("movies", movieSearch);
   return movieSearch;
@@ -186,9 +161,6 @@ addEventListener("DOMContentLoaded", (e) => {
   viewTvShows()
     .then((data) => displayTvShows(data))
     .catch((err) => console.log(err));
-  // viewActors()
-  //   .then((data) => showActors(data))
-  //   .catch((err) => console.log(err));
 });
 
 //localStorage
