@@ -23,6 +23,9 @@ const renderDetails = (data) => {
           <h1>Overview</h1>
           <p class="overview">${movie.overview}</p>
           <p class="year">Released: ${year || tvYear}</p>
+            <p class="rating"><span class="fa fa-star star"></span> ${
+              movie.vote_average
+            }</p>
         </div>
       </div>
         

@@ -95,6 +95,16 @@ p {
   font-size: 20px;
   color: #808080;
 }
+.star {
+  color: orange;
+
+  font-size: 22px;
+}
+.rating {
+  margin-top: 35px;
+  font-size: 20px;
+  color: #808080;
+}
 .overview {
   font-size: 18px;
   color: #808080;
