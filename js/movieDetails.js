@@ -20,12 +20,15 @@ const renderDetails = (data) => {
           />
         </div>
         <div class="dets">
-          <h1>Overview</h1>
+          <h1>Storyline</h1>
           <p class="overview">${movie.overview}</p>
+          <p class="rating"><span class="fa fa-star star"></span> ${
+            movie.vote_average
+          }</p>
+          <p class="year">Runtime: ${
+            movie.episode_run_time || movie.runtime
+          } min</p>
           <p class="year">Released: ${year || tvYear}</p>
-            <p class="rating"><span class="fa fa-star star"></span> ${
-              movie.vote_average
-            }</p>
         </div>
       </div>
         
@@ -37,9 +40,6 @@ addEventListener("DOMContentLoaded", (e) => {
 
   const id = search.get("id");
   const type = search.get("type");
-
-  console.log(type);
-  console.log(id);
 
   if (id) {
     getMovieReviews(id)

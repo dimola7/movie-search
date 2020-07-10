@@ -10,8 +10,6 @@ const logo = document.querySelector(".logo");
 const card = document.querySelector(".header-card");
 const form = document.querySelector(".search");
 const slides = document.querySelector(".slider").children;
-const prev = document.querySelector(".prev");
-const next = document.querySelector(".next");
 const indicator = document.querySelector(".indicator");
 
 //gsap animation for logo and search bar to slide down
