@@ -20,11 +20,11 @@
   </head>
 
   <body>
-    <ul class="nav">
+    <section class="home">
       <div class="logo">
-        <a href="#">MoviesInfo</a>
+        <h2>MoviesInfo</h2>
       </div>
-      <form class="">
+      <form>
         <input
           type="text"
           name="movie"
@@ -32,11 +32,98 @@
           class="search"
         />
       </form>
-    </ul>
-    <div class="container">
-      <div class="trending">
-        <!-- trending -->
+      <div class="slider">
+        <div
+          class="slide active"
+          style="
+            background-image: linear-gradient(
+                rgba(0, 0, 0, 0.4),
+                rgba(0, 0, 0, 0.7)
+              ),
+              url('assets/money-heist2.jpg');
+          "
+        >
+          <div class="container">
+            <div class="caption">
+              <h1>Money Heist</h1>
+              <p>Lorem ipsum dummy text goes here.</p>
+              <a href="movieDetails.html?type=tv&id=71446" class="view">View</a>
+            </div>
+            <img class="header-card" src="assets/money-heist.jpg" alt="" />
+          </div>
+        </div>
+        <div
+          class="slide"
+          style="
+            background-image: linear-gradient(
+                rgba(0, 0, 0, 0.4),
+                rgba(0, 0, 0, 0.7)
+              ),
+              url('assets/parasite2.jpg');
+          "
+        >
+          <div class="container">
+            <div class="caption">
+              <h1>Parasite</h1>
+              <p>Lorem ipsum dummy text goes here.</p>
+              <a href="movieDetails.html?type=movie&id=496243">view</a>
+            </div>
+            <img class="header-card" src="assets/parasite.jpg" alt="" />
+          </div>
+        </div>
+        <div
+          class="slide"
+          style="
+            background-image: linear-gradient(
+                rgba(0, 0, 0, 0.4),
+                rgba(0, 0, 0, 0.7)
+              ),
+              url('assets/stranger-things2.jpg');
+          "
+        >
+          <div class="container">
+            <div class="caption">
+              <h1>Stranger Things</h1>
+              <p>Lorem ipsum dummy text goes here.</p>
+              <a href="movieDetails.html?type=tv&id=66732">view</a>
+            </div>
+            <img class="header-card" src="assets/stranger-things.jpg" alt="" />
+          </div>
+        </div>
+        <div
+          class="slide"
+          style="
+            background-image: linear-gradient(
+                rgba(0, 0, 0, 0.4),
+                rgba(0, 0, 0, 0.7)
+              ),
+              url('assets/joker2.jpg');
+          "
+        >
+          <div class="container">
+            <div class="caption">
+              <h1>Joker</h1>
+              <p>Lorem ipsum dummy text goes here.</p>
+              <a href="movieDetails.html?type=movie&id=475557">view</a>
+            </div>
+            <img class="header-card" src="assets/joker.jpg" alt="" />
+          </div>
+        </div>
       </div>
+
+      <!-- controls  -->
+      <div>
+        <div class="prev"></div>
+        <div class="next"></div>
+      </div>
+
+      <!-- indicators -->
+      <div class="indicator"></div>
+    </section>
+
+    <div class="container">
+      <!-- <a href="movieDetails.html?type=movie&id=36647"><button>test</button></a> -->
+
       <div class="loader hide"></div>
       <div class="movie-title"></div>
       <div class="movies">
@@ -55,7 +142,25 @@
       <div class="shows">
         <!-- tv shows -->
       </div>
+      <div class="trending">
+        <!-- trending -->
+      </div>
     </div>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"
+      integrity="sha512-DkPsH9LzNzZaZjCszwKrooKwgjArJDiEjA5tTgr3YX4E6TYv93ICS8T41yFHJnnSmGpnf0Mvb5NhScYbwvhn2w=="
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TimelineMax.min.js"
+      integrity="sha512-0xrMWUXzEAc+VY7k48pWd5YT6ig03p4KARKxs4Bqxb9atrcn2fV41fWs+YXTKb8lD2sbPAmZMjKENiyzM/Gagw=="
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.4.0/Draggable.js"
+      integrity="sha512-9xNHEarZNqgk4DK6rnJP5jU18aJVGiI5kUHDcG+8Z9cMRnIOKavvilEaS1CPtLj5GfXXO8suRzydhLU6gWQfDA=="
+      crossorigin="anonymous"
+    ></script>
     <script src="js/movies.js"></script>
     <script src="js/script.js"></script>
   </body>

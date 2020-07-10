@@ -14,24 +14,21 @@ body {
   margin: auto;
 }
 .nav {
-  padding: 10px 0 10px 0;
+  /* padding: 10px 0 10px 0; */
   text-align: right;
   padding-right: 10%;
   top: 0;
-  background-color: #181818;
-  overflow: hidden;
+  /* overflow: hidden; */
+  margin-bottom: 80px;
 }
 .logo {
-  float: left;
-  padding-left: 10%;
-  font-size: 18px;
-  font-weight: 700;
-  margin-top: 6px;
-  font-family: "Permanent Marker", cursive;
-}
-.logo a {
-  text-decoration: none;
-  color: #ffa502;
+  width: 160px;
+  position: absolute;
+  top: 10%;
+  left: 1%;
+  transform: translate(-20%, -70%);
+  color: white;
+  z-index: 3;
 }
 
 .loader {
