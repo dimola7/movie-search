@@ -222,35 +222,6 @@ if (localStorage.getItem("movies")) {
 
 let index = 0;
 
-// create circle indicators
-const circleIndicator = () => {
-  for (let i = 0; i < slides.length; i++) {
-    const div = document.createElement("div");
-    div.innerHTML = i + 1;
-    div.setAttribute("onclick", "indicateSlide(this)");
-    div.id = i;
-    if (i == 0) {
-      div.className = "active";
-    }
-    indicator.appendChild(div);
-  }
-};
-circleIndicator();
-
-const indicateSlide = (element) => {
-  index = element.id;
-  changeSlide();
-  updateCircleIndicator();
-  resetTimer();
-};
-
-const updateCircleIndicator = () => {
-  for (let i = 0; i < indicator.children.length; i++) {
-    indicator.children[i].classList.remove("active");
-  }
-  indicator.children[index].classList.add("active");
-};
-
 const prevSlide = () => {
   if (index == 0) {
     index = slides.length - 1;
