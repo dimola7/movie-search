@@ -4,6 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link
       href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap"
       rel="stylesheet"
     />
@@ -46,7 +50,7 @@
           <div class="container">
             <div class="caption">
               <h1>The Witcher</h1>
-              <p>Lorem ipsum dummy text goes here.</p>
+              <p class="rating"><span class="fa fa-star star"></span>8.1</p>
               <a href="movieDetails.html?type=tv&id=71912">view</a>
             </div>
             <img class="header-card" src="assets/the-witcher.jpg" alt="" />
@@ -65,7 +69,7 @@
           <div class="container">
             <div class="caption">
               <h1>Parasite</h1>
-              <p>Lorem ipsum dummy text goes here.</p>
+              <p class="rating"><span class="fa fa-star star"></span>8.5</p>
               <a href="movieDetails.html?type=movie&id=496243">view</a>
             </div>
             <img class="header-card" src="assets/parasite.jpg" alt="" />
@@ -84,7 +88,7 @@
           <div class="container">
             <div class="caption">
               <h1>Stranger Things</h1>
-              <p>Lorem ipsum dummy text goes here.</p>
+              <p class="rating"><span class="fa fa-star star"></span>8.5</p>
               <a href="movieDetails.html?type=tv&id=66732">view</a>
             </div>
             <img class="header-card" src="assets/stranger-things.jpg" alt="" />
@@ -103,7 +107,7 @@
           <div class="container">
             <div class="caption">
               <h1>Money Heist</h1>
-              <p>Lorem ipsum dummy text goes here.</p>
+              <p class="rating"><span class="fa fa-star star"></span>8.4</p>
               <a href="movieDetails.html?type=tv&id=71446" class="view">View</a>
             </div>
             <img class="header-card" src="assets/money-heist.jpg" alt="" />
@@ -122,7 +126,7 @@
           <div class="container">
             <div class="caption">
               <h1>Joker</h1>
-              <p>Lorem ipsum dummy text goes here.</p>
+              <p class="rating"><span class="fa fa-star star"></span>8.2</p>
               <a href="movieDetails.html?type=movie&id=475557">view</a>
             </div>
             <img class="header-card" src="assets/joker.jpg" alt="" />
@@ -149,20 +153,19 @@
         <!-- movie data -->
       </div>
       <h1>Top-Rated Movies</h1>
-      <h2><span>|</span>Fan favorites</h2>
+      <h2 class="fans"><span>|</span>Fan favorites</h2>
       <div class="top-rated">
         <!-- top rated movies -->
       </div>
-      <h1>Upcoming Movies</h1>
-      <div class="upcoming">
+      <h1>Trending</h1>
+      <div class="trending">
         <!-- upcoming movies -->
       </div>
       <h1>Tv Shows</h1>
       <div class="shows">
         <!-- tv shows -->
-      </div>
-      <div class="trending">
-        <!-- trending -->
+        <button class="start">&#10094;</button>
+        <button class="end">&#10095;</button>
       </div>
     </div>
     <hr />

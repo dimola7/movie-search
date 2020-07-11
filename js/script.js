@@ -1,16 +1,14 @@
 const search = document.querySelector("form");
 const showMovies = document.querySelector(".movies");
-const trend = document.querySelector(".trending");
 const loader = document.querySelector(".loader");
 const title = document.querySelector(".movie-title");
-const upcoming = document.querySelector(".upcoming");
+const trend = document.querySelector(".trending");
 const shows = document.querySelector(".shows");
 const topRated = document.querySelector(".top-rated");
 const logo = document.querySelector(".logo");
 const card = document.querySelector(".header-card");
 const form = document.querySelector(".search");
 const slides = document.querySelector(".slider").children;
-const indicator = document.querySelector(".indicator");
 
 //gsap animation for logo and search bar to slide down
 const tl = new TimelineMax();
@@ -53,29 +51,7 @@ const updateUI = (data) => {
     }
   });
 };
-//display trending
-const showTrending = (data) => {
-  const trending = data.trending.results;
-  console.log(trending);
-  trending.forEach((trending) => {
-    const type = trending.media_type;
-    const id = trending.id;
-    const html = `
-    <a href="movieDetails.html?type=${type}&id=${id}">
-        <div class="trending-card">
-          <img
-            class="trending-img"
-            src="${IMG_URL}${trending.backdrop_path}"
-            alt="image"
-            data-movie-id=${trending.id}
-          />
-        <p class="trending-name">${trending.title || trending.name}</p>
-      </div>
-      </a>
-    `;
-    trend.innerHTML += html;
-  });
-};
+
 //display topRated movies
 const topRatedMovies = (data) => {
   const movies = data.topRated.results.reverse();
@@ -98,25 +74,28 @@ const topRatedMovies = (data) => {
     topRated.innerHTML += html;
   });
 };
-//display upcoming movies
-const upcomingMovies = (data) => {
-  const movies = data.upcoming.results;
-  movies.forEach((movie) => {
-    const id = movie.id;
+
+//display trending movies and tv shows
+const showTrending = (data) => {
+  const trending = data.trending.results;
+  console.log(trending);
+  trending.forEach((trending) => {
+    const type = trending.media_type;
+    const id = trending.id;
     const html = `
     <a href="movieDetails.html?type=movie&id=${id}">
         <div class="movie-card">
           <img
             class="movie-card-img"
-            src="${IMG_URL}${movie.poster_path}"
+            src="${IMG_URL}${trending.poster_path}"
             alt="image"
-            data-movie-id=${movie.id}
+            data-movie-id=${trending.id}
           />
-        <p class="movie-name">${movie.title}</p>
+        <p class="movie-name">${trending.title || trending.name}</p>
       </div>
       </a>
     `;
-    upcoming.innerHTML += html;
+    trend.innerHTML += html;
   });
 };
 
@@ -147,11 +126,6 @@ const viewMovies = async (movie) => {
   const movies = await getMovies(movie);
 
   return { movies };
-};
-const viewUpcoming = async () => {
-  const upcoming = await getUpcoming();
-
-  return { upcoming };
 };
 const viewTopRated = async () => {
   const topRated = await getTopRated();
@@ -200,10 +174,6 @@ addEventListener("DOMContentLoaded", (e) => {
     .then((data) => showTrending(data))
     .catch((err) => console.log(err));
 
-  viewUpcoming()
-    .then((data) => upcomingMovies(data))
-    .catch((err) => console.log(err));
-
   viewTopRated()
     .then((data) => topRatedMovies(data))
     .catch((err) => console.log(err));
@@ -220,6 +190,7 @@ if (localStorage.getItem("movies")) {
     .catch((err) => console.log(err));
 }
 
+// carousel in header
 let index = 0;
 
 const prevSlide = () => {
@@ -248,16 +219,8 @@ const changeSlide = () => {
   slides[index].classList.add("active");
 };
 
-const resetTimer = () => {
-  // stop timer
-  clearInterval(timer);
-  // then started again timer
-  timer = setInterval(autoPlay, 4000);
-};
-
 const autoPlay = () => {
   nextSlide();
-  updateCircleIndicator();
 };
 
-let timer = setInterval(autoPlay, 4000);
+let timer = setInterval(autoPlay, 7000);

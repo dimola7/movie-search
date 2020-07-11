@@ -96,9 +96,13 @@ body {
   animation-delay: 1s;
 }
 .home .caption p {
-  font-size: 18px;
+  font-size: 22px;
   margin: 15px 0 30px;
   color: #ffffff;
+}
+.home .caption p .star{
+  font-size: 22px;
+  color: orange;
 }
 .home .slide.active .caption p {
   opacity: 0;
@@ -163,6 +167,18 @@ a {
   text-decoration: none;
   color: #fff;
 }
+/* scroll buttons */
+.start {
+  position: absolute;
+  left: 5%;
+  /* top: 5px; */
+}
+.end {
+  position: absolute;
+  right: 5%;
+  /* top: 50%; */
+}
+
 /* loader */
 .loader {
   position: absolute;
@@ -210,7 +226,7 @@ span {
   font-weight: bolder;
   margin-right: 10px;
 }
-h2 {
+.fans {
   padding-bottom: 10px;
   font-family: "Source Sans Pro", sans-serif;
   margin-bottom: 10px;
@@ -246,23 +262,7 @@ h2 {
   width: 200px;
   margin-right: 20px;
 }
-.trending-card {
-  width: 100%;
-}
-.trending-img {
-  width: 390px;
-  margin-right: 20px;
-  border-radius: 40px;
-}
-.trending-name {
-  font-family: sans-serif;
-  font-size: 17px;
-  padding: 20px 0;
-  margin-right: 5px;
-  text-align: center;
-  top: 50%;
-  left: 50%;
-}
+
 .movie-card:hover {
   margin-left: 0 40px;
   transform: scale(1.2);
@@ -283,9 +283,6 @@ h2 {
   }
   .home .logo {
     left: 12%;
-  }
-  .trending-img {
-    width: 300px;
   }
   .home .header-card {
     width: 120px;
