@@ -100,7 +100,7 @@ body {
   margin: 15px 0 30px;
   color: #ffffff;
 }
-.home .caption p .star{
+.home .caption p .star {
   font-size: 22px;
   color: orange;
 }
@@ -292,3 +292,26 @@ span {
     transform: translate(-20%, -70%);
   }
 }
+
+/*FOOTER*/
+footer {
+  background: #000000;
+  color: white;
+  text-align: center;
+}
+footer a{
+  color: #ffa502;
+  font-weight: 700;
+}
+.year {
+  font-weight: 300;
+  color: #ffffff;
+}
+.me{
+  margin-bottom: 18px;
+}
+.themoviedb{
+  /* height: 20%; */
+  height: 12px;
+}
+
