@@ -168,15 +168,37 @@ a {
   color: #fff;
 }
 /* scroll buttons */
-.start {
+.start,
+.trend-left,
+.rated-left,
+.search-left {
   position: absolute;
   left: 5%;
-  /* top: 5px; */
+  margin-top: 10%;
+  padding: 12px 16px;
+  cursor: pointer;
+  font-size: 20px;
+  border-radius: 4px;
+  color: #ffffff;
+  background: #404040;
+  border-color: #ffffff;
+  border-width: thin;
 }
-.end {
+.end,
+.trend-right,
+.rated-right,
+.search-right {
   position: absolute;
   right: 5%;
-  /* top: 50%; */
+  margin-top: 10%;
+  padding: 12px 16px;
+  cursor: pointer;
+  font-size: 20px;
+  border-radius: 4px;
+  color: #ffffff;
+  background: #404040;
+  border-color: #ffffff;
+  border-width: thin;
 }
 
 /* loader */
@@ -276,6 +298,30 @@ span {
   padding: 20px 0;
   margin-right: 5px;
 }
+/*FOOTER*/
+footer {
+  background: #000000;
+  color: white;
+  text-align: center;
+}
+footer a {
+  color: #ffa502;
+  font-weight: 700;
+}
+.year {
+  font-weight: 300;
+  color: #ffffff;
+}
+.me {
+  margin-bottom: 18px;
+}
+.themoviedb {
+  /* height: 20%; */
+  height: 9px;
+}
+.powered {
+  font-size: 13px;
+}
 
 @media screen and (max-width: 800px) {
   .home .search {
@@ -291,27 +337,14 @@ span {
     left: 60%;
     transform: translate(-20%, -70%);
   }
+  .end,
+  .trend-right,
+  .rated-right,
+  .start,
+  .trend-left,
+  .rated-left,
+  .search-right,
+  .search-left {
+    display: none;
+  }
 }
-
-/*FOOTER*/
-footer {
-  background: #000000;
-  color: white;
-  text-align: center;
-}
-footer a{
-  color: #ffa502;
-  font-weight: 700;
-}
-.year {
-  font-weight: 300;
-  color: #ffffff;
-}
-.me{
-  margin-bottom: 18px;
-}
-.themoviedb{
-  /* height: 20%; */
-  height: 12px;
-}
-

@@ -8,7 +8,40 @@ const topRated = document.querySelector(".top-rated");
 const logo = document.querySelector(".logo");
 const card = document.querySelector(".header-card");
 const form = document.querySelector(".search");
+const rightButton = document.querySelector(".end");
+const leftButton = document.querySelector(".start");
+const trendLeft = document.querySelector(".trend-left");
+const trendRight = document.querySelector(".trend-right");
+const ratedLeft = document.querySelector(".rated-left");
+const ratedRight = document.querySelector(".rated-right");
+const searchLeft = document.querySelector(".search-left");
+const searchRight = document.querySelector(".search-right");
 const slides = document.querySelector(".slider").children;
+
+rightButton.onclick = () => {
+  document.querySelector(".shows").scrollLeft += 20;
+};
+leftButton.onclick = () => {
+  document.querySelector(".shows").scrollLeft -= 20;
+};
+trendLeft.onclick = () => {
+  document.querySelector(".trending").scrollLeft -= 20;
+};
+trendRight.onclick = () => {
+  document.querySelector(".trending").scrollLeft += 20;
+};
+ratedLeft.onclick = () => {
+  document.querySelector(".top-rated").scrollLeft -= 20;
+};
+ratedRight.onclick = () => {
+  document.querySelector(".top-rated").scrollLeft += 20;
+};
+searchLeft.onclick = () => {
+  document.querySelector(".movies").scrollLeft -= 20;
+};
+searchRight.onclick = () => {
+  document.querySelector(".movies").scrollLeft += 20;
+};
 
 //gsap animation for logo and search bar to slide down
 const tl = new TimelineMax();
