@@ -87,8 +87,17 @@ p {
   text-align: justify;
 }
 .year {
-  margin-top: 40px;
+  margin-top: 30px;
   font-size: 20px;
+  color: #808080;
+}
+.genres {
+  font-weight: 100;
+  margin-top: 30px;
+  font-size: 20px;
+  color: #808080;
+}
+.genres span {
   color: #808080;
 }
 .star {
@@ -96,7 +105,7 @@ p {
   font-size: 22px;
 }
 .rating {
-  margin-top: 35px;
+  margin-top: 30px;
   font-size: 20px;
   color: #808080;
 }

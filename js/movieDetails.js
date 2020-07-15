@@ -25,14 +25,23 @@ const renderDetails = (data) => {
           <p class="rating"><span class="fa fa-star star"></span> ${
             movie.vote_average
           }</p>
+          <p class="genres">Genres: </p>
           <p class="year">Runtime: ${
             movie.episode_run_time || movie.runtime
           } min</p>
           <p class="year">Released: ${year || tvYear}</p>
         </div>
-      </div>
-        
+      </div> 
     `;
+  let array = [];
+  const renderGenre = details.querySelector(".genres");
+  movie.genres.forEach((genre) => {
+    array.push(genre.name);
+    console.log(array);
+    if (movie.genres.length === array.length) {
+      renderGenre.innerHTML += array.join(", ");
+    }
+  });
 };
 
 addEventListener("DOMContentLoaded", (e) => {

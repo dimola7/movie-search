@@ -19,28 +19,28 @@ const searchRight = document.querySelector(".search-right");
 const slides = document.querySelector(".slider").children;
 
 rightButton.onclick = () => {
-  document.querySelector(".shows").scrollLeft += 20;
+  document.querySelector(".shows").scrollLeft += 200;
 };
 leftButton.onclick = () => {
-  document.querySelector(".shows").scrollLeft -= 20;
+  document.querySelector(".shows").scrollLeft -= 200;
 };
 trendLeft.onclick = () => {
-  document.querySelector(".trending").scrollLeft -= 20;
+  document.querySelector(".trending").scrollLeft -= 200;
 };
 trendRight.onclick = () => {
-  document.querySelector(".trending").scrollLeft += 20;
+  document.querySelector(".trending").scrollLeft += 200;
 };
 ratedLeft.onclick = () => {
-  document.querySelector(".top-rated").scrollLeft -= 20;
+  document.querySelector(".top-rated").scrollLeft -= 200;
 };
 ratedRight.onclick = () => {
-  document.querySelector(".top-rated").scrollLeft += 20;
+  document.querySelector(".top-rated").scrollLeft += 200;
 };
 searchLeft.onclick = () => {
-  document.querySelector(".movies").scrollLeft -= 20;
+  document.querySelector(".movies").scrollLeft -= 200;
 };
 searchRight.onclick = () => {
-  document.querySelector(".movies").scrollLeft += 20;
+  document.querySelector(".movies").scrollLeft += 200;
 };
 
 //gsap animation for logo and search bar to slide down
@@ -184,6 +184,13 @@ search.addEventListener("submit", (e) => {
 
   console.log(movieSearch);
 
+  searchLeft.onclick = () => {
+    document.querySelector(".movies").scrollLeft -= 200;
+  };
+  searchRight.onclick = () => {
+    document.querySelector(".movies").scrollLeft += 200;
+  };
+
   loader.classList.remove("hide");
 
   showMovies.innerHTML = "";
@@ -191,6 +198,8 @@ search.addEventListener("submit", (e) => {
   viewMovies(movieSearch)
     .then((data) => {
       loader.classList.add("hide");
+      searchLeft.classList.remove("hide");
+      searchRight.classList.remove("hide");
       updateUI(data);
     })
     .catch((err) => console.log(err));
@@ -201,6 +210,18 @@ search.addEventListener("submit", (e) => {
   localStorage.setItem("movies", movieSearch);
   return movieSearch;
 });
+
+//localStorage
+if (localStorage.getItem("movies")) {
+  viewMovies(localStorage.getItem("movies"))
+    .then((data) => {
+      loader.classList.add("hide");
+      searchLeft.classList.remove("hide");
+      searchRight.classList.remove("hide");
+      updateUI(data);
+    })
+    .catch((err) => console.log(err));
+}
 
 addEventListener("DOMContentLoaded", (e) => {
   viewTrending()
@@ -215,13 +236,6 @@ addEventListener("DOMContentLoaded", (e) => {
     .then((data) => displayTvShows(data))
     .catch((err) => console.log(err));
 });
-
-//localStorage
-if (localStorage.getItem("movies")) {
-  viewMovies(localStorage.getItem("movies"))
-    .then((data) => updateUI(data))
-    .catch((err) => console.log(err));
-}
 
 // carousel in header
 let index = 0;
