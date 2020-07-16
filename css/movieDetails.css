@@ -119,12 +119,12 @@ p {
   color: #000;
   max-width: 100%;
    display: grid;
-  grid-template-columns: 1fr 2fr;
+  grid-template-columns: 1fr 5fr;
   grid-gap: 18px;
   border-radius: 25px;
-  padding: 25px 25px;
-  margin-bottom: 70px;
-  text-align: left; */
+  padding: 15px 15px;
+  margin-bottom: 60px;
+  text-align: left; 
 }
 /* .by{
   background: white;
@@ -185,5 +185,6 @@ p {
   }
   .review-card{
     grid-template-columns: 1fr;
+    padding: 15px 7px;
   }
 }
