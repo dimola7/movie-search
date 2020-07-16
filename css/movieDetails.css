@@ -117,13 +117,14 @@ p {
 .review-card {
   background: #808080;
   color: #000;
-  display: grid;
-  grid-template-columns: 1fr 5fr;
+  max-width: 100%;
+   display: grid;
+  grid-template-columns: 1fr 2fr;
   grid-gap: 18px;
   border-radius: 25px;
   padding: 25px 25px;
   margin-bottom: 70px;
-  text-align: left;
+  text-align: left; */
 }
 /* .by{
   background: white;
@@ -180,6 +181,9 @@ p {
     width: 100%;
   }
   .grid {
+    grid-template-columns: 1fr;
+  }
+  .review-card{
     grid-template-columns: 1fr;
   }
 }
