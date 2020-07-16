@@ -75,7 +75,7 @@ const getMovieReviews = async (movie_id) => {
 
 //get tv reviews
 const getTvReviews = async (tv_id) => {
-  const base = `https://api.themoviedb.org/3/movie/${tv_id}/reviews`;
+  const base = `https://api.themoviedb.org/3/tv/${tv_id}/reviews`;
   const query = `?api_key=${key}`;
 
   const response = await fetch(base + query);

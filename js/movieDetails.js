@@ -1,4 +1,5 @@
 const details = document.querySelector(".movie-details");
+const reviews = document.querySelector(".reviews");
 
 //api doc instructs to add this url before every image url
 const IMG_URL = "https://image.tmdb.org/t/p/w500";
@@ -37,10 +38,28 @@ const renderDetails = (data) => {
   const renderGenre = details.querySelector(".genres");
   movie.genres.forEach((genre) => {
     array.push(genre.name);
-    console.log(array);
     if (movie.genres.length === array.length) {
       renderGenre.innerHTML += array.join(", ");
     }
+  });
+};
+
+const showReviews = (data) => {
+  const review = data.results;
+  console.log(review);
+  reviews.innerHTML = `
+        <h2 class="review-title">Reviews</h2>
+        <p class="review-content"></p>
+    `;
+  const reviewContent = reviews.querySelector(".review-content");
+  review.forEach((review) => {
+    const myreviews = `
+    <div class="review-card">
+        <div class="by">Written by ${review.author}</div>
+        <div>${review.content}</div>
+    </div>
+    `;
+    reviewContent.innerHTML += myreviews;
   });
 };
 
@@ -50,30 +69,19 @@ addEventListener("DOMContentLoaded", (e) => {
   const id = search.get("id");
   const type = search.get("type");
 
-  if (id) {
-    getMovieReviews(id)
-      .then((data) => console.log(data))
-      .catch((err) => console.log(err));
-    getTvReviews(id)
-      .then((data) => console.log(data))
-      .catch((err) => console.log(err));
-  }
-  //   if ((id, type === "movie")) {
-  //     getMovieDets(id)
-  //       .then((data) => renderDetails(data))
-  //       .catch((err) => console.log(err));
-  //   } else {
-  //     getTvDets(id)
-  //       .then((data) => renderDetails(data))
-  //       .catch((err) => console.log(err));
-  //   }
   if ((id, type === "tv")) {
     getTvDets(id)
       .then((data) => renderDetails(data))
       .catch((err) => console.log(err));
+    getTvReviews(id)
+      .then((data) => showReviews(data))
+      .catch((err) => console.log(err));
   } else {
     getMovieDets(id)
       .then((data) => renderDetails(data))
+      .catch((err) => console.log(err));
+    getMovieReviews(id)
+      .then((data) => showReviews(data))
       .catch((err) => console.log(err));
   }
 });
