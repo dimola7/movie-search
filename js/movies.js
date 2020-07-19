@@ -83,6 +83,26 @@ const getTvReviews = async (tv_id) => {
 
   return data;
 };
+//get tv credits
+const getTvCredits = async (tv_id) => {
+  const base = `https://api.themoviedb.org/3/tv/${tv_id}/credits`;
+  const query = `?api_key=${key}`;
+
+  const response = await fetch(base + query);
+  const data = await response.json();
+
+  return data;
+};
+//get movie credits
+const getMovieCredits = async (movie_id) => {
+  const base = `https://api.themoviedb.org/3/movie/${movie_id}/credits`;
+  const query = `?api_key=${key}`;
+
+  const response = await fetch(base + query);
+  const data = await response.json();
+
+  return data;
+};
 //display actors
 // const getActors = async () => {
 //   const base = "https://api.themoviedb.org/3/person/popular";

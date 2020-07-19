@@ -94,6 +94,7 @@ const topRatedMovies = (data) => {
     const html = `
     <a href="movieDetails.html?type=movie&id=${id}">
         <div class="movie-card">
+        <div class="placeholder">
           <img
             class="movie-card-img"
             src="${IMG_URL}${movie.poster_path}"
@@ -101,6 +102,7 @@ const topRatedMovies = (data) => {
             data-movie-id=${movie.id}
           />
         <p class="movie-name">${movie.title}</p>
+        </div>
       </div>
       </a>
     `;
