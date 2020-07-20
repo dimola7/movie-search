@@ -23,7 +23,7 @@ const renderDetails = (data) => {
         </div>
         <div class="dets">
           <h1>Storyline</h1>
-          <p class="overview">${movie.overview}</p>
+          <p class="story">${movie.overview}</p>
           <p class="rating"><span class="fa fa-star star"></span> ${
             movie.vote_average
           }</p>
