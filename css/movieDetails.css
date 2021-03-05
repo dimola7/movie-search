@@ -154,9 +154,8 @@ label {
 #expanded:checked + p {
   -webkit-line-clamp: unset;
 }
-#expanded:checked ~ label {
-  display: none;
-}
+/* #expanded:checked ~ label {
+} */
 .story {
   font-size: 18px;
   color: #808080;
